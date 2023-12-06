@@ -23,6 +23,15 @@ public class SaveSystem : MonoBehaviour
             GameManager.instance.SetResources("money",-GameManager.instance.GetResources("money") + gameInfo.money);
             foreach(AnimalSave i in gameInfo.animals)
             {
+                Animal animal = Instantiate(Resources.Load<Animal>("Prefab/" + i.prefabName.Replace("(Clone)", "").Trim()));
+                animal.transform.position = new Vector2(i.position.x, i.position.y);
+                animal.Name = i.name;
+                animal.age = i.age;
+                animal.hungerness = i.hungerness;
+                animal.thirstness = i.thirstness;
+                animal.tiredness = i.tiredness;
+                animal.minSpeed = i.minSpeed;
+                animal.maxSpeed = i.maxSpeed;
 
             }
         }
@@ -32,6 +41,15 @@ public class SaveSystem : MonoBehaviour
     {
         int money = GameManager.instance.GetResources("money");
         gameInfo.money = money;
+
+        Animal[] animals = FindObjectsOfType<Animal>();
+
+        gameInfo.animals.Clear();
+        for (int i = 0; i < animals.Length; i++)
+        {
+            gameInfo.animals.Add(new AnimalSave() { position = new Vector2(animals[i].transform.position.x, animals[i].transform.position.y),name = animals[i].Name, 
+            age = animals[i].age, hungerness = animals[i].hungerness, thirstness = animals[i].thirstness, tiredness = animals[i].tiredness, minSpeed = animals[i].minSpeed, maxSpeed = animals[i].maxSpeed, prefabName = animals[i].prefab.name } );
+        }
         
         string json = JsonUtility.ToJson(gameInfo);
         Debug.Log(Application.persistentDataPath + "/data.save");

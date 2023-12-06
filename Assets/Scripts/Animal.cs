@@ -6,16 +6,16 @@ using UnityEngine;
 public class Animal : MonoBehaviour
 {
     public GameObject prefab;
-    [SerializeField] protected string Name;
+    public string Name;
     [SerializeField] protected string Type;
-    [SerializeField] public AlimentationType alimentation;
-    [SerializeField] protected int age;
-    [SerializeField] protected float speed;
-    [SerializeField] protected int hungerness;
-    [SerializeField] protected int thirstness;
-    [SerializeField] protected int tiredness;
-    [SerializeField] protected float minSpeed;
-    [SerializeField] protected float maxSpeed;
+    public AlimentationType alimentation;
+    public int age;
+    public float speed;
+    public int hungerness;
+    public int thirstness;
+    public int tiredness;
+    public float minSpeed;
+    public float maxSpeed;
     [SerializeField] protected GameObject enclot;
 
     private Vector2 targetPos;

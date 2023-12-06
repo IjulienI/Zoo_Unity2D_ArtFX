@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +13,8 @@ public class GameInfo
 public struct AnimalSave
 {
     public string prefabName;
-    public int id;
+    public string name; 
+    //public int id;
     public int age;
     public int hungerness;
     public int thirstness;
