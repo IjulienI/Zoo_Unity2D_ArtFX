@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Animal : MonoBehaviour
 {
+    public GameObject prefab;
     [SerializeField] protected string Name;
     [SerializeField] protected string Type;
     [SerializeField] public AlimentationType alimentation;
@@ -141,10 +142,12 @@ public class Animal : MonoBehaviour
         SetRandomTargetPos(2);
     }
 
-    public enum AlimentationType
-    {
-        Fish,
-        Vegetable,
-        Meat
-    }
+    
+}
+
+public enum AlimentationType
+{
+    Fish,
+    Vegetable,
+    Meat
 }

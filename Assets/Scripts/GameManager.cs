@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    public static GameManager instance;
+
     [Header("Ui References")]
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private UIManager uiManager;
@@ -36,12 +39,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject lynxEnclot;
     [SerializeField] private GameObject penguinEnclot;
     private bool isPaused;
-    private int money = 999999999;
+    private int money = 100;
     private int meat;
     private int fish;
     private int vegetable;
 
     private GameObject target;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Update()
     {

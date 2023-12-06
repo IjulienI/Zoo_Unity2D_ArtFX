@@ -75,11 +75,12 @@ public class UIManager : MonoBehaviour
             gameManager.SetAnimalPrice("zebra", 15);
             Instantiate(gameManager.GetAnimal("zebra"), gameManager.GetAnimalEnclot("zebra").transform.position, gameManager.GetAnimalEnclot("zebra").transform.rotation);
         }
-        else if(gameManager.GetResources("money") > gameManager.GetAnimalPrice("zebra"))
+        else if(gameManager.GetResources("money") >= gameManager.GetAnimalPrice("zebra"))
         {
             gameManager.SetResources("money", -gameManager.GetAnimalPrice("zebra"));
             gameManager.SetAnimalPrice("zebra", gameManager.GetAnimalPrice("zebra") * 2);
             Instantiate(gameManager.GetAnimal("zebra"), gameManager.GetAnimalEnclot("zebra").transform.position, gameManager.GetAnimalEnclot("zebra").transform.rotation);
         }
+        SaveSystem.instance.Save();
     }
 }

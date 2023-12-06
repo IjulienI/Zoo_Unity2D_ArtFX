@@ -83,6 +83,7 @@ Transform:
   - {fileID: 2141552520472947160}
   - {fileID: 3646212473228948257}
   - {fileID: 153169256079538610}
+  - {fileID: 6094570788345993091}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4826816742925424653
@@ -131,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   uiManager: {fileID: 2485970627675102039}
-  zebra: {fileID: 0}
+  zebra: {fileID: 1163114251131178354, guid: 3721d42ef5c374d43839d3d8f0cea767, type: 3}
   koala: {fileID: 0}
   capybara: {fileID: 0}
   lemur: {fileID: 0}
@@ -357,3 +358,50 @@ MonoBehaviour:
   gameManager: {fileID: 3244478198081931161}
   followCamera: {fileID: 0}
   UIManager: {fileID: 2485970627675102039}
+--- !u!1 &9074254558012794081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6094570788345993091}
+  - component: {fileID: 9035441834488877147}
+  m_Layer: 0
+  m_Name: SaveSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6094570788345993091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9074254558012794081}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 956124270161525371}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9035441834488877147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9074254558012794081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d72f56725c9a1954cb3358fb8eb9b739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameInfo:
+    money: 0
+    animals: []
