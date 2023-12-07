@@ -15,6 +15,7 @@ public class GameInfo
     public int lynx;
     public int penguin;
     public List<AnimalSave> animals = new List<AnimalSave>();
+    public string modificationDate;
 }
 
 [Serializable]
