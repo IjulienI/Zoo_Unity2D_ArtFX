@@ -32,6 +32,7 @@ public class UIManager : MonoBehaviour
     }
     public void Return()
     {
+        SaveSystem.instance.Save();
         gameManager.ChangePause();
     }
 
@@ -68,18 +69,21 @@ public class UIManager : MonoBehaviour
         return onInfo;
     }
 
-    public void BuyZebra()
-    {
-        if(gameManager.GetAnimalPrice("zebra") == 0)
+    public void BuyAnimal(string animal)
+    { 
+        if(gameManager.GetResources("money") >= gameManager.GetAnimalPrice(animal))
         {
-            gameManager.SetAnimalPrice("zebra", 15);
-            Instantiate(gameManager.GetAnimal("zebra"), gameManager.GetAnimalEnclot("zebra").transform.position, gameManager.GetAnimalEnclot("zebra").transform.rotation);
-        }
-        else if(gameManager.GetResources("money") >= gameManager.GetAnimalPrice("zebra"))
-        {
-            gameManager.SetResources("money", -gameManager.GetAnimalPrice("zebra"));
-            gameManager.SetAnimalPrice("zebra", gameManager.GetAnimalPrice("zebra") * 2);
-            Instantiate(gameManager.GetAnimal("zebra"), gameManager.GetAnimalEnclot("zebra").transform.position, gameManager.GetAnimalEnclot("zebra").transform.rotation);
+            if (gameManager.GetAnimalPrice(animal) == 0)
+            {
+                gameManager.SetAnimalPrice(animal, 15);
+                Instantiate(gameManager.GetAnimal(animal), gameManager.GetAnimalEnclot(animal).transform.position, gameManager.GetAnimalEnclot(animal).transform.rotation);
+            }
+            else
+            {
+                gameManager.SetResources("money", -gameManager.GetAnimalPrice(animal));
+                gameManager.SetAnimalPrice(animal, gameManager.GetAnimalPrice(animal) * 1.2f);
+                Instantiate(gameManager.GetAnimal(animal), gameManager.GetAnimalEnclot(animal).transform.position, gameManager.GetAnimalEnclot(animal).transform.rotation);
+            }
         }
         SaveSystem.instance.Save();
     }

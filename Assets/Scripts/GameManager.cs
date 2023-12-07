@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -149,42 +150,42 @@ public class GameManager : MonoBehaviour
         {
             return penguinPrice;
         }
-        return 0;
+        return 999999999;
     }
 
-    public void SetAnimalPrice(string name, int amount)
+    public void SetAnimalPrice(string name, float amount)
     {
         if (name.ToLower() == "zebra")
         {
-            zebraPrice = amount;
+            zebraPrice = ((int)MathF.Round(amount));
         }
         else if (name.ToLower() == "koala")
         {
-            koalaPrice = amount;
+            koalaPrice = ((int)MathF.Round(amount));
         }
         else if (name.ToLower() == "capybara")
         {
-            capybaraPrice = amount;
+            capybaraPrice = ((int)MathF.Round(amount));
         }
         else if (name.ToLower() == "lemur")
         {
-            lemurPrice = amount;
+            lemurPrice = ((int)MathF.Round(amount));
         }
         else if (name.ToLower() == "redpanda")
         {
-            redPandaPrice = amount;
+            redPandaPrice = ((int)MathF.Round(amount));
         }
         else if (name.ToLower() == "lion")
         {
-            lionPrice = amount;
+            lionPrice = ((int)MathF.Round(amount));
         }
         else if (name.ToLower() == "lynx")
         {
-            lynxPrice = amount;
+            lynxPrice = ((int)MathF.Round(amount));
         }
         else if (name.ToLower() == "penguin")
         {
-            penguinPrice = amount;
+            penguinPrice = ((int)MathF.Round(amount));
         }
     }
 

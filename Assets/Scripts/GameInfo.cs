@@ -6,6 +6,14 @@ using UnityEngine;
 public class GameInfo
 {
     public int money;
+    public int zebra;
+    public int koala;
+    public int capybara;
+    public int lemur;
+    public int redPanda;
+    public int lion;
+    public int lynx;
+    public int penguin;
     public List<AnimalSave> animals = new List<AnimalSave>();
 }
 
@@ -14,7 +22,6 @@ public struct AnimalSave
 {
     public string prefabName;
     public string name; 
-    //public int id;
     public int age;
     public int hungerness;
     public int thirstness;
