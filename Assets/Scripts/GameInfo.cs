@@ -16,6 +16,9 @@ public class GameInfo
     public int penguin;
     public List<AnimalSave> animals = new List<AnimalSave>();
     public string modificationDate;
+    public int vegetable;
+    public int meat;
+    public int fish;
 }
 
 [Serializable]
@@ -30,4 +33,9 @@ public struct AnimalSave
     public float minSpeed;
     public float maxSpeed;
     public Vector2 position;
+    public Vector2 size;
+    public float xp;
+    public float maxXp;
+    public int level;
+    public int foodNeed;
 }

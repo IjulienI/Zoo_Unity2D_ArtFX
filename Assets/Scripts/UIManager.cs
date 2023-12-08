@@ -87,4 +87,26 @@ public class UIManager : MonoBehaviour
         }
         SaveSystem.instance.Save();
     }
+
+    public void BuyResources(int index)
+    {
+        if(index == 0)
+        {
+            BuyResource("meat", 100, 50);
+        }
+        else if (index == 1)
+        {
+            BuyResource("meat", 1000, 400);
+        }
+    }
+
+    public void BuyResource(string resource, int amount, int price)
+    {
+        if(gameManager.GetResources("money") >= price)
+        {
+            gameManager.SetResources("money", -price);
+            gameManager.SetResources(resource, amount);
+        }
+        SaveSystem.instance.Save();
+    }
 }

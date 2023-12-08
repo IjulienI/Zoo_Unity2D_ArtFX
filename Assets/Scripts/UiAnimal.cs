@@ -37,6 +37,7 @@ public class UiAnimal : MonoBehaviour
         {
             animal.Eat();
         }
+        SaveSystem.instance.Save();
     }
 
     private void SetTexts(Animal animal)

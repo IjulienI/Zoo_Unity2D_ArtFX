@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject lynxEnclot;
     [SerializeField] private GameObject penguinEnclot;
     private bool isPaused;
-    private int money = 100;
+    private int money = 1000000000;
     private int meat = 8000;
     private int fish = 8000;
     private int vegetable = 8000;

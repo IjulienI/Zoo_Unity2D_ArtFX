@@ -33,6 +33,10 @@ public class Animal : MonoBehaviour
         SetRandomTargetPos(2);
     }
 
+    private void Start()
+    {
+        
+    }
     private void Update()
     {
         Move();
@@ -95,7 +99,6 @@ public class Animal : MonoBehaviour
                 LevelUp();
             }
             GameManager.instance.SetResources(alimentation.ToString(), -foodNeed);
-            foodNeed = (int)Mathf.Round(foodNeed * 1.09f);
         }
         else
         {
@@ -108,9 +111,10 @@ public class Animal : MonoBehaviour
         xp -= maxXp;
         maxXp *= 1.2f;
         level++;
-        if( level % 5 == 0)
+        foodNeed += foodNeed/2;
+        if ( level % 5 == 0)
         {
-            transform.localScale = new Vector3(transform.localScale.x + 0.1f, transform.localScale.y + 0.1f, transform.localScale.z);
+            transform.localScale = new Vector3(transform.localScale.x + 0.2f, transform.localScale.y + 0.2f, transform.localScale.z);
         }
     }
 
