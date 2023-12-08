@@ -90,13 +90,41 @@ public class UIManager : MonoBehaviour
 
     public void BuyResources(int index)
     {
-        if(index == 0)
+        if (index == 0)
         {
-            BuyResource("meat", 100, 50);
+            BuyResource("vegetable", 100, 50);
         }
         else if (index == 1)
         {
+            BuyResource("vegetable", 1000, 400);
+        }
+        else if (index == 2)
+        {
+            BuyResource("vegetable", 10000, 2500);
+        }
+        else if (index == 3)
+        {
+            BuyResource("meat", 100, 50);
+        }
+        else if (index == 4)
+        {
             BuyResource("meat", 1000, 400);
+        }
+        else if (index == 5)
+        {
+            BuyResource("meat", 10000, 2500);
+        }
+        else if (index == 6)
+        {
+            BuyResource("fish", 100, 50);
+        }
+        else if (index == 7)
+        {
+            BuyResource("fish", 1000, 400);
+        }
+        else if (index == 8)
+        {
+            BuyResource("fish", 10000, 2500);
         }
     }
 

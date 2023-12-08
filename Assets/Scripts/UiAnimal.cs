@@ -40,6 +40,12 @@ public class UiAnimal : MonoBehaviour
         SaveSystem.instance.Save();
     }
 
+    public void FeedOneLevel()
+    {
+        Animal animal = gameManager.GetTarget().GetComponent<Animal>();
+        if(gameManager.GetResources(animal.GetAlimentationType())  >= animal.maxXp - animal.xp)
+    }
+
     private void SetTexts(Animal animal)
     {
         Name.text = animal.Name;
