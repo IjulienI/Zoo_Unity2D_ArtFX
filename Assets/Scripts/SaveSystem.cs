@@ -17,11 +17,9 @@ public class SaveSystem : MonoBehaviour
     public void Load()
     {
         if(File.Exists(Application.persistentDataPath + "/data.save"))
-        {
-            Debug.Log(File.GetLastWriteTime(Application.persistentDataPath + "/data.save"));            
+        {          
             string json = File.ReadAllText(Application.persistentDataPath + "/data.save");
             gameInfo = JsonUtility.FromJson<GameInfo>(json);
-            Debug.Log(gameInfo.modificationDate);
 
             if (File.GetLastWriteTime(Application.persistentDataPath + "/data.save").ToString(CultureInfo.CurrentCulture) == gameInfo.modificationDate)
             {

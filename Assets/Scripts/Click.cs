@@ -61,7 +61,6 @@ public class Click : MonoBehaviour
             followCamera.UpdateTarget(collision.gameObject);
             UIManager.AnimalInfo();
             gameManager.ChangePause();
-            Debug.Log("Animal Type : " + collision.GetComponent<Animal>().GetAnimalType());
         }
         ColliderOff();
     }

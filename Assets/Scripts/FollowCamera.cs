@@ -15,6 +15,5 @@ public class FollowCamera : MonoBehaviour
     public void UpdateTarget(GameObject obj)
     {
         target = obj;
-        Debug.Log("hello");
     }
 }

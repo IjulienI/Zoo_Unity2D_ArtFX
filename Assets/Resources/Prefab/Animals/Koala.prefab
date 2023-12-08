@@ -172,4 +172,8 @@ MonoBehaviour:
   tiredness: 0
   minSpeed: 0.1
   maxSpeed: 1
+  maxXp: 5
+  xp: 0
+  level: 0
+  foodNeed: 1
   enclot: {fileID: 0}

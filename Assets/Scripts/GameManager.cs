@@ -41,9 +41,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject penguinEnclot;
     private bool isPaused;
     private int money = 100;
-    private int meat;
-    private int fish;
-    private int vegetable;
+    private int meat = 8000;
+    private int fish = 8000;
+    private int vegetable = 8000;
 
     private GameObject target;
 
@@ -100,7 +100,6 @@ public class GameManager : MonoBehaviour
         if (type.ToLower() == "money")
         {
             money += amount;
-            Debug.Log("Money : "+ money);
         }
         else if (type.ToLower() == "vegetable")
         {
