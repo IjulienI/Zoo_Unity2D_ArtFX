@@ -8,6 +8,7 @@ public class SaveSystem : MonoBehaviour
 {
     public static SaveSystem instance;
     public GameInfo gameInfo;
+    public GameObject cheatScreen;
 
     private void Start()
     {
@@ -26,6 +27,10 @@ public class SaveSystem : MonoBehaviour
             {
                 LoadAnimals();
                 LoadGameManager();
+            }
+            else
+            {
+                cheatScreen.SetActive(true);
             }
         }
     }

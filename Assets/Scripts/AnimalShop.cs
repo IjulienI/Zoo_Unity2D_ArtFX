@@ -11,7 +11,7 @@ public class AnimalShop : MonoBehaviour
     [SerializeField] private TextMeshProUGUI vegetable;
     [SerializeField] private TextMeshProUGUI meat;
 
-    private void Update()
+    private void Start()
     {
         money.text = (gameManager.GetResources("money")+ " $");
         meat.text = GameManager.instance.GetResources("meat").ToString();
