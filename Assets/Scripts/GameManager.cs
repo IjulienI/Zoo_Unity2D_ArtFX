@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     private int money = 1000000000;
     private int meat = 8000;
     private int fish = 8000;
-    private int vegetable = 8000;
+    private int vegetable = 999999999;
 
     private GameObject target;
 

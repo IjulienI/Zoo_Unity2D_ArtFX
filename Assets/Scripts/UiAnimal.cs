@@ -10,6 +10,7 @@ public class UiAnimal : MonoBehaviour
     [SerializeField] private TextMeshProUGUI needFoodText;
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI foodText;
+    [SerializeField] private TextMeshProUGUI levelFoodText;
     [SerializeField] private Slider xpSlider;
     [SerializeField] private Sprite[] foodSprites;
     [SerializeField] private Image[] foodImages;
@@ -43,7 +44,21 @@ public class UiAnimal : MonoBehaviour
     public void FeedOneLevel()
     {
         Animal animal = gameManager.GetTarget().GetComponent<Animal>();
-        if(gameManager.GetResources(animal.GetAlimentationType())  >= animal.maxXp - animal.xp)
+        int temp = gameManager.GetResources(animal.GetAlimentationType());
+        Debug.Log(temp);
+        for(int i = 0; i < animal.foodNeededLevel; i++)
+        {
+            temp = temp - animal.foodNeed;
+        }
+        if(temp >= 0)
+        {
+            for (int i = 0; i < animal.foodNeededLevel; i++)
+            {
+                animal.Eat();
+            }
+            animal.ReturnNextLevelValue();
+            SaveSystem.instance.Save();
+        }
     }
 
     private void SetTexts(Animal animal)
@@ -52,6 +67,7 @@ public class UiAnimal : MonoBehaviour
         needFoodText.text = animal.foodNeed.ToString();
         levelText.text = ("LVL : " + animal.level.ToString());
         foodText.text = gameManager.GetResources(animal.GetAlimentationType()).ToString();
+        levelFoodText.text = (animal.foodNeededLevel * animal.foodNeed).ToString();
     }
 
     private void SetSlider(Animal animal)

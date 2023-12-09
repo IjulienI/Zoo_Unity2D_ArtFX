@@ -30,6 +30,7 @@ public class SaveSystem : MonoBehaviour
             }
             else
             {
+                File.Delete(Application.persistentDataPath + "/data.save");
                 cheatScreen.SetActive(true);
             }
         }
