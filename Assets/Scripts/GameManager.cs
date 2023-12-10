@@ -40,12 +40,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject lynxEnclot;
     [SerializeField] private GameObject penguinEnclot;
     private bool isPaused;
-    private int money = 1000000000;
-    private int meat = 8000;
-    private int fish = 8000;
-    private int vegetable = 999999999;
+    private int money;
+    private int meat;
+    private int fish;
+    private int vegetable = 1200;
+    private Animal[] animals;
+    private int animalMoney;
 
     private GameObject target;
+    private float delay;
 
     private void Awake()
     {
@@ -57,6 +60,28 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && !uiManager.GetOnShop() || Input.GetKeyDown(KeyCode.Escape) && !uiManager.GetOnInfo() && !uiManager.GetOnShop())
         {
             ChangePause();
+        }
+        delay += 1f * Time.deltaTime;
+        if(delay >= 2f)
+        {
+            money += animalMoney;
+            delay = 0f;
+        }
+
+    }
+
+    public void UpdateAnimals()
+    {
+        animals = FindObjectsOfType<Animal>();
+        CalculMoney();
+    }
+
+    private void CalculMoney()
+    {
+        animalMoney = 0;
+        foreach (var a in animals)
+        {
+             animalMoney += a.moneyGain * (3 * (a.level + 1));
         }
     }
 

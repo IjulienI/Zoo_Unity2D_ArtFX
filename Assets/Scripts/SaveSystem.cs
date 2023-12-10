@@ -55,8 +55,7 @@ public class SaveSystem : MonoBehaviour
     {
         foreach (AnimalSave i in gameInfo.animals)
         {
-            Animal animal = Instantiate(Resources.Load<Animal>("Prefab/Animals/" + i.prefabName.Replace("(Clone)", "").Trim()));
-            animal.transform.position = i.position;
+            Animal animal = Instantiate(Resources.Load<Animal>("Prefab/Animals/" + i.prefabName.Replace("(Clone)", "").Trim()),new Vector2(i.position.x, i.position.y),transform.rotation) ;
             animal.transform.localScale = i.size;
             animal.Name = i.name;
             animal.age = i.age;
@@ -70,6 +69,7 @@ public class SaveSystem : MonoBehaviour
             animal.maxXp = i.maxXp;
             animal.level = i.level;
         }
+        GameManager.instance.UpdateAnimals();
     }
     private void LoadGameManager()
     {

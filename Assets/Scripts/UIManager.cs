@@ -85,6 +85,7 @@ public class UIManager : MonoBehaviour
                 Instantiate(gameManager.GetAnimal(animal), gameManager.GetAnimalEnclot(animal).transform.position, gameManager.GetAnimalEnclot(animal).transform.rotation);
             }
         }
+        GameManager.instance.UpdateAnimals();
         SaveSystem.instance.Save();
     }
 
@@ -104,27 +105,39 @@ public class UIManager : MonoBehaviour
         }
         else if (index == 3)
         {
-            BuyResource("meat", 100, 50);
+            BuyResource("vegetable", 100000, 20000);
         }
         else if (index == 4)
         {
-            BuyResource("meat", 1000, 400);
+            BuyResource("meat", 100, 50);
         }
         else if (index == 5)
         {
-            BuyResource("meat", 10000, 2500);
+            BuyResource("meat", 1000, 400);
         }
         else if (index == 6)
         {
-            BuyResource("fish", 100, 50);
+            BuyResource("meat", 10000, 2500);
         }
         else if (index == 7)
         {
-            BuyResource("fish", 1000, 400);
+            BuyResource("meat", 100000, 20000);
         }
         else if (index == 8)
         {
+            BuyResource("fish", 100, 50);
+        }
+        else if (index == 9)
+        {
+            BuyResource("fish", 1000, 400);
+        }
+        else if (index == 10)
+        {
             BuyResource("fish", 10000, 2500);
+        }
+        else if (index == 11)
+        {
+            BuyResource("fish", 100000, 20000);
         }
     }
 

@@ -34,30 +34,40 @@ public class UiAnimal : MonoBehaviour
     public void Feed()
     {
         Animal animal = gameManager.GetTarget().GetComponent<Animal>();
-        if (gameManager.GetResources(animal.GetAlimentationType()) >= animal.foodNeed)
+        if (animal.level < 15)
         {
-            animal.Eat();
+            if (gameManager.GetResources(animal.GetAlimentationType()) >= animal.foodNeed)
+            {
+                animal.Eat();
+            }
         }
+        GameManager.instance.UpdateAnimals();
         SaveSystem.instance.Save();
     }
 
     public void FeedOneLevel()
     {
         Animal animal = gameManager.GetTarget().GetComponent<Animal>();
-        int temp = gameManager.GetResources(animal.GetAlimentationType());
-        Debug.Log(temp);
-        for(int i = 0; i < animal.foodNeededLevel; i++)
-        {
-            temp = temp - animal.foodNeed;
-        }
-        if(temp >= 0)
-        {
+        if (animal.level < 15)
+        {            
+            int temp = gameManager.GetResources(animal.GetAlimentationType());
+            Debug.Log(temp);
             for (int i = 0; i < animal.foodNeededLevel; i++)
             {
-                animal.Eat();
+                temp = temp - animal.foodNeed;
             }
-            animal.ReturnNextLevelValue();
-            SaveSystem.instance.Save();
+            if (temp >= 0)
+            {
+                if(gameManager.GetResources(animal.GetAlimentationType()) > animal.foodNeededLevel * animal.foodNeed)
+                {
+                    for (int i = 0; i < animal.foodNeededLevel; i++)
+                    {
+                        animal.Eat();
+                    }
+                    animal.ReturnNextLevelValue();
+                }
+                SaveSystem.instance.Save();
+            }
         }
     }
 
@@ -65,7 +75,14 @@ public class UiAnimal : MonoBehaviour
     {
         Name.text = animal.Name;
         needFoodText.text = animal.foodNeed.ToString();
-        levelText.text = ("LVL : " + animal.level.ToString());
+        if(animal.level < 15)
+        {
+            levelText.text = ("LVL : " + animal.level.ToString());
+        }
+        else
+        {
+            levelText.text = ("LVL : MAX");
+        }
         foodText.text = gameManager.GetResources(animal.GetAlimentationType()).ToString();
         levelFoodText.text = (animal.foodNeededLevel * animal.foodNeed).ToString();
     }

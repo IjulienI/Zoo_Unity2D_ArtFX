@@ -7,6 +7,7 @@ public class Animal : MonoBehaviour
     public GameObject prefab;
     public string Name;
     [SerializeField] protected string Type;
+    [SerializeField] public int moneyGain;
     public AlimentationType alimentation;
     public int age;
     public float speed;
